@@ -16,9 +16,11 @@ module LogStash
 
       FieldReferenceValidationAdapter = NamedValidationAdapter.new(:field_reference) do |value|
         break ValidationResult.failure("Expected exactly one field reference, got `#{value.inspect}`") unless value.kind_of?(Array) && value.size <= 1
-        break ValidationResult.success(nil) if value.empty? || value.first.nil?
 
         candidate = value.first
+
+        break ValidationResult.success(nil) if value.empty? || candidate.nil?
+        break ValidationResult.success(candidate) if candidate.empty? # compatibility with LS >= 7.x field_reference validation logic
 
         break ValidationResult.failure("Expected a valid field reference, got `#{candidate.inspect}`") unless field_reference_pattern =~ candidate
 
