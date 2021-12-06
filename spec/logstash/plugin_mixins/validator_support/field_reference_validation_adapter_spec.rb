@@ -34,7 +34,7 @@ describe LogStash::PluginMixins::ValidatorSupport::FieldReferenceValidationAdapt
         is_valid_result, coerced_or_error = described_class.validate ['']
 
         expect(is_valid_result).to be true
-        expect(coerced_or_error).to eql ''
+        expect(coerced_or_error).to be nil
       end
     end
 
