@@ -19,8 +19,7 @@ module LogStash
 
         candidate = value.first
 
-        break ValidationResult.success(nil) if value.empty? || candidate.nil?
-        break ValidationResult.success(candidate) if candidate.empty? # compatibility with LS >= 7.x field_reference validation logic
+        break ValidationResult.success(nil) if value.empty? || candidate.nil? || candidate.empty?
 
         break ValidationResult.failure("Expected a valid field reference, got `#{candidate.inspect}`") unless field_reference_pattern =~ candidate
 
