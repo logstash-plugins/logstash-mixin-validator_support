@@ -12,6 +12,7 @@ describe LogStash::PluginMixins::ValidatorSupport::RequiredHostOptionalPortValid
     {
       "127.0.0.1:1234" => {:host => "127.0.0.1", :port => 1234},
       "82.31.1.3:9800" => {:host => "82.31.1.3", :port => 9800},
+      "localhost:1234" => {:host => "localhost", :port => 1234},
       "foo.com:1234"   => {:host => "foo.com",   :port => 1234},
       "foo-bar-domain.com:9800" => {:host => "foo-bar-domain.com", :port => 9800},
       "[::1]:1234" => {:host => "::1", :port => 1234},

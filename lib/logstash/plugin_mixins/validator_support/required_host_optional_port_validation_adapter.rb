@@ -13,7 +13,7 @@ module LogStash
       is_valid_ipv4 = ->(candidate) { Resolv::IPv4::Regex.match?(candidate) && Resolv::IPv4.create(candidate) rescue false}
       is_valid_ipv6 = ->(candidate) { Resolv::IPv6::Regex.match?(candidate) && Resolv::IPv6.create(candidate) rescue false}
 
-      is_valid_hostname = ->(candidate) { (%r{\A([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\Z}i).match?(candidate) }
+      is_valid_hostname = ->(candidate) { (%r{\A([a-z0-9]+(-[a-z0-9]+)*\.)?[a-z]{2,}\Z}i).match?(candidate) }
 
       # the normalized tuple from valid values
       host_port_pair = Struct.new(:host, :port)
