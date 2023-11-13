@@ -1,3 +1,6 @@
+## 1.1.1
+  - allow single word host names [#7](https://github.com/logstash-plugins/logstash-mixin-validator_support/pull/7)
+
 ## 1.1.0
   - Introduces `:required_host_optional_port` validator [#4](https://github.com/logstash-plugins/logstash-mixin-validator_support/pull/4)
 
